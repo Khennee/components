@@ -213,6 +213,7 @@ const ToDoListPage = () => {
           />
           <button
             onClick={handleAddTask}
+            data-testid="submit-add-todolist-button"
             className={`px-4 py-2 rounded font-medium ${
               isAdding || !newTaskTitle.trim()
                 ? 'bg-gray-400 cursor-not-allowed'
@@ -224,29 +225,68 @@ const ToDoListPage = () => {
           </button>
         </div>
 
-        <div className="flex justify-center gap-4 mb-6">
-          {['basic', 'timed', 'checklist'].map((type) => (
-            <label
-              key={type}
-              className={`flex items-center space-x-2 px-3 py-1 rounded cursor-pointer ${
-                taskType === type ? 'bg-green-600 text-white hover:bg-green-700' : 'bg-gray-200 hover:bg-gray-300'
-              }`}
-            >
-              <input
-                type="radio"
-                name="taskType"
-                value={type}
-                checked={taskType === type}
-                onChange={() => {
-                  localStorage.setItem('taskType', type);
-                  window.location.reload();
-                }}
-                className="h-5 w-5 accent-green-600 text-green-600 focus:ring-green-600 cursor-pointer"
-              />
-              <span className="capitalize">{type} Task</span>
-            </label>
-          ))}
+       <div className="flex justify-center gap-4 mb-6">
+          <label
+            data-testid="task-type-basic"
+            className={`flex items-center space-x-2 px-3 py-1 rounded cursor-pointer ${
+              taskType === 'basic' ? 'bg-green-600 text-white hover:bg-green-700' : 'bg-gray-200 hover:bg-gray-300'
+            }`}
+          >
+            <input
+              type="radio"
+              name="taskType"
+              value="basic"
+              checked={taskType === 'basic'}
+              onChange={() => {
+                setTaskType('basic');            
+                localStorage.setItem('taskType', 'basic');  
+              }}
+              className="h-5 w-5 accent-green-600 text-green-600 focus:ring-green-600 cursor-pointer"
+            />
+            <span>Basic Task</span>
+          </label>
+
+          <label
+            data-testid="task-type-timed"
+            className={`flex items-center space-x-2 px-3 py-1 rounded cursor-pointer ${
+              taskType === 'timed' ? 'bg-green-600 text-white hover:bg-green-700' : 'bg-gray-200 hover:bg-gray-300'
+            }`}
+          >
+            <input
+              type="radio"
+              name="taskType"
+              value="timed"
+              checked={taskType === 'timed'}
+              onChange={() => {
+                setTaskType('timed');            
+                localStorage.setItem('taskType', 'timed');  
+              }}
+              className="h-5 w-5 accent-green-600 text-green-600 focus:ring-green-600 cursor-pointer"
+            />
+            <span>Timed Task</span>
+          </label>
+
+          <label
+            data-testid="task-type-checklist"
+            className={`flex items-center space-x-2 px-3 py-1 rounded cursor-pointer ${
+              taskType === 'checklist' ? 'bg-green-600 text-white hover:bg-green-700' : 'bg-gray-200 hover:bg-gray-300'
+            }`}
+          >
+            <input
+              type="radio"
+              name="taskType"
+              value="checklist"
+              checked={taskType === 'checklist'}
+              onChange={() => {
+                setTaskType('checklist');            
+                localStorage.setItem('taskType', 'checklist');  
+              }}
+              className="h-5 w-5 accent-green-600 text-green-600 focus:ring-green-600 cursor-pointer"
+            />
+            <span>Checklist Task</span>
+          </label>
         </div>
+
 
         <div className="overflow-y-auto grid grid-cols-1 gap-4 pr-2 scrollbar-hidden">
           {localTasks.length > 0 ? (

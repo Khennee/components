@@ -26,6 +26,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
 
         <div className="mt-6 text-right">
           <button 
+            data-testid = "modal-close-button"
             aria-label="Close"
             className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600" 
             onClick={onClose}>

@@ -25,6 +25,7 @@ export default function TaskCard({ task, type, children, onToggleCompletion }: T
       <div className="flex justify-between items-start">
         <div className="flex items-center space-x-2">
           <h3
+            data-testid="task-item"
             className={`font-medium cursor-pointer ${isCompleted ? 'line-through text-green-600' : 'text-gray-900'}`}
             onClick={handleToggleCompletion}
           >

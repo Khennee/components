@@ -11,6 +11,8 @@ For testing
 
 For End to End testing (Cypress)
 - npm i
+- cd backend 
+- npm run dev
 - cd components (frontend)
 - npm run dev 
 - npx cypress open (new terminal)

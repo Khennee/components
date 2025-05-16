@@ -146,6 +146,7 @@ export default function ChecklistTask({
               </button>
 
               <button
+                data-testid="checklist-add-button"
                 onClick={() => {
                   if (!newItemText.trim()) return;
                   handleAddItem();

@@ -72,7 +72,10 @@ const StudentListPage = () => {
 
                 <div className="flex items-center space-x-4">
                     <h1 className="text-white text-2xl font-bold">Students</h1>
-                    <button className="bg-green-600 text-white py-2 px-4 rounded-2xl cursor-pointer" onClick={() => setShowAddModal(true)}>
+                    <button 
+                        data-testid="open-add-student-modal-button"
+                        className="bg-green-600 text-white py-2 px-4 rounded-2xl cursor-pointer" 
+                        onClick={() => setShowAddModal(true)}>
                         +
                     </button>
                 </div>
@@ -114,9 +117,9 @@ const StudentListPage = () => {
                                     Cancel
                                 </button>
                                 <button 
-                                data-testid="add-student-button"
-                                type="submit" 
-                                className="bg-green-600 text-white px-3 py-2 rounded-md cursor-pointer">
+                                    data-testid="submit-add-student-button"
+                                    type="submit" 
+                                    className="bg-green-600 text-white px-3 py-2 rounded-md cursor-pointer">
                                     Add
                                 </button>
                             </div>
