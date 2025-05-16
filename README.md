@@ -15,5 +15,5 @@ For End to End testing (Cypress)
 - npm run dev
 - cd components (frontend)
 - npm run dev 
-- npx cypress open (new terminal)
+- npx cypress open (new terminal) <- still under frontend)
 - test file can be seen here components\cypress\e2e\app.cy.ts
